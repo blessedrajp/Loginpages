@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="signup.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Mooli&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b331d0e423.js" crossorigin="anonymous"></script>
+
+    <title>Signup</title>
+  </head>
+  <body>
+    <section id="signup">
+        <div class="backdep">
+            <div class="backA">
+                <!-- <img src="images/gif1.gif" class="img-fluid backimg" alt="..."> -->
+                <div class="container login-box">
+                    
+                    <h1  class="text-center mb-5"  style="color: #03e9f4; text-transform: uppercase ;">
+                        Signup
+                    </h1>
+
+                    <form>
+                        <div class="firstname neatbox d-flex justify-content-center">
+                        <!-- <label>First name</label> -->
+                        <input type="text" id="firstname" class="Fstname box" placeholder="First name *">
+                        <i class="fa-solid fa-check" style="color: rgb(61, 171, 61); font-size: 20px; visibility:hidden;position: relative;" id="nameok"></i>
+                        <i class="fa-solid fa-xmark" style="color: red; font-size: 20px; visibility:hidden;position: relative;" id="nameno"></i>
+                        </div>
+                        <div class="text-center">
+                        <span style="visibility:hidden ;position: relative;" id="nameerr" >Enter your name</span>
+                        <span style="visibility:hidden ;position: relative;" id="formnameerr" >Enter Proper name</span>
+
+                    </div>
+
+
+                
+                        <div class="neatbox mt-2 d-flex justify-content-center">
+                            <!-- <label>Email</label> -->
+                            <input type="email" id="Email" class="email box" placeholder="Enter your Email *">
+                            <i class="fa-solid fa-check" style="color: rgb(61, 171, 61); font-size: 20px; visibility:hidden; position: relative;" id="emailok"></i>
+                            <i class="fa-solid fa-xmark" style="color: red; font-size: 20px; visibility:hidden;position: relative;" id="emailno"></i>
+                        </div>
+                        <div class="text-center">
+                            <span style="visibility:hidden ;position: relative;" id="mailerr" >Enter your Email</span>
+                            <span style="visibility:hidden ;position: relative;" id="formtmailerr" >Enter Proper Email</span>
+
+                        </div>
+
+
+                        <div class="neatbox password mt-2 d-flex justify-content-center">
+                            <!-- <label>Password</label> -->
+                            <input type="password" id="password" class="pwd box" placeholder="Enter password *">
+                            <i class="fa-solid fa-check" style="color: rgb(61, 171, 61); font-size: 20px; visibility:hidden;" id="passok"></i>
+                            <i class="fa-solid fa-xmark" style="color: red; font-size: 20px; visibility:hidden;" id="passno"></i>
+                        </div>
+                        <div class="text-center">
+                            <span style="visibility:hidden ;position: relative;" id="passerr">Enter your Password</span>
+                            <span style="visibility:hidden ;position: relative;" id="formatpasserr"> Max-8char A-Z,a-z,123,spchar</span>
+                        </div>
+
+
+                        <div class="neatbox cnfpassword mt-2 d-flex justify-content-center">
+                            <!-- <label>Conform Password</label> -->
+                            <input type="text" id="confrmpassword" class="cnfpwd box" placeholder="Conform password *" >
+                            <i class="fa-solid fa-check" style="color: rgb(61, 171, 61); font-size: 20px; visibility:hidden;" id="cnok"></i>
+                            <i class="fa-solid fa-xmark" style="color: red; font-size: 20px; visibility:hidden;" id="cnno"></i>
+                        </div>
+                        <div class="text-center">
+                        <span style="visibility:hidden ; position: relative;" id="cnpasserr">Conform your Password</span>
+                        <span style="visibility:hidden ; position: relative;" id="Nomatchcnpasserr">Enter same Password</span>
+
+                    </div>
+
+
+                        <div class="d-flex justify-content-center mt-4 submit">
+                        <input type="button" value="Submit" id="subbut"  class="" onclick="FormValid()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </input>
+                    </div>  
+                    </form>
+                </div>
+            </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
+
+<script>
+    function FormValid(){
+
+       
+        var Firstname=document.getElementById("firstname").value.trim();
+        var Email=document.getElementById("Email").value;
+        var Password=document.getElementById("password").value;
+        var CnfPass=document.getElementById("confrmpassword").value;
+        var Mailformat= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var ValidPass=/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        var validfn=/^[a-z0-9_.]+$/;
+
+
+        if(Firstname){
+            if(validfn.test(Firstname)==true && (Firstname.length>=6)){
+            document.getElementById("firstname").style="border:1px green solid";
+            document.getElementById("nameerr").style="visibility:hidden";
+            document.getElementById("nameok").style="visibility:visible;color:green";
+            document.getElementById("nameno").style="visibility:hidden; color:red ";
+            document.getElementById("formnameerr").style="visibility:hidden; color:red;position: relative;right: 93px;";
+
+            }else{
+                document.getElementById("firstname").style="border:1px red solid";
+                document.getElementById("formnameerr").style="visibility:visible; color:red;position: relative;right: 93px;";
+                document.getElementById("nameerr").style="visibility:hidden; color:red;position: relative;";
+                document.getElementById("nameno").style="visibility:visible; color:red";
+                document.getElementById("nameok").style="visibility:hidden;color:green";
+            }
+           
+
+
+        }else{
+            document.getElementById("firstname").style="border:1px red solid";
+            document.getElementById("nameerr").style="visibility:visible; color:red;position: relative;left: 41px;";
+            document.getElementById("formnameerr").style="visibility:hidden; color:red;position: relative;right: 93px;";
+            document.getElementById("nameno").style="visibility:visible; color:red";
+            document.getElementById("nameok").style="visibility:hidden;color:green";
+
+
+        }
+
+        if(Email){
+
+            if(Mailformat.test(Email)==true){
+                document.getElementById("Email").style="border:1px green solid";
+                document.getElementById("mailerr").style="visibility:hidden;position: relative;";
+                document.getElementById("emailok").style="visibility:visible;color:green;position: relative;";
+                document.getElementById("emailno").style="visibility:hidden; color:red;position: relative;";
+                document.getElementById("formtmailerr").style="visibility:hidden; color:red;position: relative;";
+
+            }else{
+            document.getElementById("Email").style="border:1px red solid";
+            document.getElementById("formtmailerr").style="visibility:visible; color:red;position: relative;right: 93px;";
+            document.getElementById("emailno").style="visibility:visible; color:red;position: relative;";
+            document.getElementById("mailerr").style="visibility:hidden; color:red;position: relative;";
+
+
+            }
+        }else{
+            document.getElementById("Email").style="border:1px red solid";
+            document.getElementById("mailerr").style="visibility:visible; color:red;position: relative;left: 41px;";
+            document.getElementById("emailno").style="visibility:visible; color:red;position: relative;";
+            document.getElementById("emailok").style="visibility:hidden;color:green;position: relative;";
+            document.getElementById("formtmailerr").style="visibility:hidden; color:red;position: relative;";
+
+        }
+
+        if(Password){
+            if(ValidPass.test(Password)==true){
+            document.getElementById("password").style="border:1px green solid";
+            document.getElementById("passerr").style="visibility:hidden";
+            document.getElementById("passok").style="visibility:visible;color:green";
+            document.getElementById("passno").style="visibility:hidden; color:red";
+            document.getElementById("formatpasserr").style="visibility:hidden; color:red";
+
+            }else{
+                document.getElementById("password").style="border:1px red solid";
+                document.getElementById("formatpasserr").style="visibility:visible; color:White;position:relative;right: 68px;";
+                document.getElementById("passerr").style="visibility:hidden; color:red;position: relative;left: 77px;";
+                document.getElementById("passno").style="visibility:visible; color:red";
+                document.getElementById("passok").style="visibility:hidden;color:green";
+
+            }
+        }else{
+            document.getElementById("password").style="border:1px red solid";
+            document.getElementById("passerr").style="visibility:visible; color:red;position: relative;left: 98px;";
+            document.getElementById("formatpasserr").style="visibility:hidden; color:red;relative;right: 61px;";
+            document.getElementById("passno").style="visibility:visible; color:red";
+            document.getElementById("passok").style="visibility:hidden;color:green";
+        }
+
+        if(CnfPass){
+            if(CnfPass==Password){
+                document.getElementById("confrmpassword").style="border:1px green solid";
+                document.getElementById("cnpasserr").style="visibility:hidden";
+                document.getElementById("cnok").style="visibility:visible;color:green";
+                document.getElementById("cnno").style="visibility:hidden; color:red";
+                document.getElementById("Nomatchcnpasserr").style="visibility:hidden;color:red;position:relative;";
+
+            }else{
+                document.getElementById("confrmpassword").style="border:1px red solid";
+                document.getElementById("Nomatchcnpasserr").style="visibility:visible;color:red;position: relative;right: 61px;";
+                document.getElementById("cnok").style="visibility:hidden;color:green";
+                document.getElementById("cnno").style="visibility:visible; color:red";
+                document.getElementById("cnpasserr").style="visibility:hidden; color:red";
+
+
+            }
+            
+        }else{
+            document.getElementById("confrmpassword").style="border:1px red solid";
+            document.getElementById("cnpasserr").style="visibility:visible; color:red;position: relative;left: 77px;";;
+            document.getElementById("cnno").style="visibility:visible; color:red";
+            document.getElementById("cnok").style="visibility:hidden;color:green";
+            document.getElementById("Nomatchcnpasserr").style="visibility:hidden;color:red;position:relative;";
+
+        }
+
+    }
+</script>

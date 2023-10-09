@@ -1,0 +1,135 @@
+body{
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+    font-family: 'Mooli', sans-serif;
+}
+
+.backimg{
+    /* height:100vh !important;
+    width:100vw !important; */
+}
+.backA{
+    background-image: url(images/gif1.gif);
+    height:100vh !important;
+    width:100vw !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-box{
+    background: black;
+    
+    height: 75vh;
+    width: 50vw;
+    border-radius: 35px;
+    position: relative;
+    top: 12%;
+    padding: 68px
+}
+
+.firstname{
+
+}
+.box{
+    padding: 6px;
+    border-radius: 10px;
+    background: rgba(0,0,0,.5);
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+.firstname .box{
+    width: 82%;
+}
+.neatbox .box{
+  width:50%
+}
+::placeholder{
+    color: grey;
+}
+
+.login-box form  .submit input {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px;
+    background: rgba(0,0,0,.5); 
+  }
+
+  .login-box  input{
+    color: white;
+  }
+
+  .login-box  input:hover {
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+  }
+
+  .login-box  .submit input:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+  }
+  .login-box  input span {
+    position: absolute;
+    display: block;
+  }
+
+  .login-box  input span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+
+  
+
+/* media query */
+@media (min-width:320px) and (max-width:700px){
+    html ,body{
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    .login-box{
+        height: 83vh;
+        width: 75vw;
+    }
+    .neatbox .box{
+        width:100%
+      }
+
+}
+
+@media (min-width:701px) and (max-width:1200px){
+    html ,body{
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+}
